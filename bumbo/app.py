@@ -17,3 +17,8 @@ class BooksResource:
 
     def put(self, req, resp):
         resp.text = "Endpoint to update a book"
+
+def handler(req, resp):
+    resp.text = "sample"
+
+app.add_route("/sample", handler)
