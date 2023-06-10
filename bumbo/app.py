@@ -11,3 +11,9 @@ class BooksResource:
 
     def post(self, req, resp):
         resp.text = "Endpoint to create a book"
+
+    def delete(self, req, resp):
+        resp.text = "Delete Book"
+
+    def put(self, req, resp):
+        resp.text = "Endpoint to update a book"
