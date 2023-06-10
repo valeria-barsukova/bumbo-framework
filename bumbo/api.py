@@ -2,12 +2,13 @@ import os
 import inspect
 
 from parse import parse
-from webob import Request, Response
+from webob import Request
 from requests import Session as RequestsSession
 from wsgiadapter import WSGIAdapter as RequestsWSGIAdapter
 from jinja2 import Environment, FileSystemLoader
 from whitenoise import WhiteNoise
 
+from response import Response
 from middleware import Middleware
 
 
@@ -49,7 +50,6 @@ class API:
 
         self.routes[path] = {"handler": handler, "allowed_methods": allowed_methods}
 
-
     def route(self, path, allowed_methods=None):
         def wrapper(handler):
             self.add_route(path, handler, allowed_methods)
@@ -68,7 +68,6 @@ class API:
                 return handler_data, parse_result.named
 
         return None, None
-
 
     def handle_request(self, request):
         response = Response()
@@ -97,8 +96,6 @@ class API:
                 self.exception_handler(request, response, e)
 
         return response
-
-
 
     def test_session(self, base_url="http://testserver"):
         session = RequestsSession()
