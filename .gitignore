@@ -2,3 +2,8 @@ webapp/__pycache__
 webapp/venv
 bumbo/__pycache__
 bumbo/venv
+bumbo/.eggs
+bumbo/dist
+bumbo/build
+bumbo/bumbo_lera.egg-info
+bumbo/.coverage
